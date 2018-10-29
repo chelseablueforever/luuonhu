@@ -25,8 +25,17 @@ const puppeteer = require('puppeteer');
 function kiusi(){
   (async () => {
   console.log('-----kiusi00000-----------');
-  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
-  
+  // const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+  const browser = await puppeteer.launch({
+    args: [
+         '--no-sandbox',
+         '--disable-setuid-sandbox',
+         '--disable-gpu',
+         '--disable-dev-shm-usage',
+         '--proxy-server="direct://"',
+         '--proxy-bypass-list=*'
+    ]
+});
   const page = await browser.newPage();
   await page.goto('https://chelseablueforever.github.io/luuonhu/index.html'); 
   console.log('----XONG0--------');
